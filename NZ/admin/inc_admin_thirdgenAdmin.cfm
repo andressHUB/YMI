@@ -1,0 +1,2 @@
+<!--- <iframe width="100%" height="600" frameborder="0" marginheight="0" marginwidth="0" name="thirdgenAdmin" src="../thirdgen/user_admin"></iframe> --->
+<cflocation addtoken="No" url="../thirdgen/user_admin/">
