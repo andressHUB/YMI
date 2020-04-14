@@ -1,0 +1,160 @@
+<cfset admin="../html/adminMarine.cfm?act=">
+<cfset NewLineChars = Chr(13) & Chr(10)>
+
+<cfset ADMIN_USERIDS = "1,3,131">
+
+<cfset CONST_MARINE_COMP_ID = 1> <!--- YMI NZ Marine --->
+<cfset CONST_BDM_Email = "NZYMI@ymi.co.nz">
+<cfset CONST_USER_FIRST_NAME_FID = "20483">
+<cfset CONST_USER_LAST_NAME_FID = "20484">
+
+<cfset CONST_marineQuoteFormDefId = 974>
+    <cfset CONST_MQ_QuoteStatus_FID = "GLOBAL_quoteStatus">
+    <cfset CONST_MQ_QuoteStatus_stage1_LID = "7542">
+    <cfset CONST_MQ_QuoteStatus_stage2_LID = "7543">
+    <cfset CONST_MQ_QuoteStatus_stage3_LID = "7544">
+    <cfset CONST_MQ_QuoteStatus_stage4_LID = "7545">
+
+    <!--- QUOTE DETAILS STAGE FIELDs --->
+    <cfset CONST_MQ_FirstName_FID = "firstname|text1">
+    <cfset CONST_MQ_Surname_FID = "surname|text2">
+    <cfset CONST_MQ_InsuredValue_FID = "insvalue|number1">
+    <cfset CONST_MQ_BoatType_FID = "boattype|newlist2">   
+    <cfset CONST_MQ_BoatSpeed_FID = "boatspeed|newlist3">
+    <cfset CONST_MQ_BoatConst_FID = "boatconstruction|newlist5">
+    <cfset CONST_MQ_StorageMethod_FID = "storagemethod|newlist7">
+    <cfset CONST_MQ_LiabiltyLmt_FID = "laiblimitoption|newlist4">
+    <cfset CONST_MQ_ExcessOpt_FID = "excessoption|newlist1">
+    <cfset CONST_MQ_BoatExp_FID = "boatingexp|newlist6">
+    <cfset CONST_MQ_SailorAge_FID = "ageinsured|number2">
+    <cfset CONST_MQ_BoatMake_FID = "20886|text3">
+    
+    <cfset CONST_MQ_hadInsuranceRefused_FID = "insrefused|yesno1">
+    <cfset CONST_MQ_hadClaims_FID = "insclaims|yesno2">
+    <cfset CONST_MQ_hadChargedWithOffence_FID = "insoffence|yesno3">
+    
+    <cfset CONST_MQ_StreetParked_FID = "streetparked">
+    <cfset CONST_MQ_BoatProd_FID = "production">
+    <cfset CONST_MQ_BoatAge_FID = "boatage">
+    <cfset CONST_MQ_BoatFuelType_FID ="fueltype">
+    <cfset CONST_MQ_MotorType_FID = "motortype">
+    <cfset CONST_MQ_MotorAge_FID = "motorage">
+    <cfset CONST_MQ_layUpMths_FID = "layupmonths"> 
+    <cfset CONST_MQ_BoatingCourseOpt_FID = "boatingcourseopt">
+    <cfset CONST_MQ_SkiersLiabilityOpt_FID = "skiliabopt">
+    
+    <!--- CHOOSE QUOTE STAGE FIELDs --->
+    <cfset CONST_MQ_quoteComp_FID = "20888|number3">
+    <cfset CONST_MQ_quoteMotorOnly_FID = "20898|number4">
+    <cfset CONST_MQ_quoteTPO_FID = "20892|number5">
+    <cfset CONST_MQ_quoteSelected_FID = "20894|newlist9"> 
+    <cfset CONST_MQ_extraSelected_FID = "20896|text4"> 
+    <cfset CONST_MQ_quoteDetails_FID = "CQ_quoteDetails|text5">
+    
+    <!--- BOUND COVER STAGE FIELDs --->
+    <cfset CONST_MQ_CoverBoundTitle_FID ="CB_Title">
+    <cfset CONST_MQ_CoverCommDate_FID ="CB_CoverCommDate">
+    <cfset CONST_MQ_InsurerDOB_FID = "CB_DOB">
+    <cfset CONST_MQ_InsuredAddStreet_FID = "CB_Address_Street">
+    <cfset CONST_MQ_InsuredAddPost_FID = "CB_Address_Postcode">
+    <cfset CONST_MQ_Homephone_FID = "CB_Homephone">
+    <cfset CONST_MQ_MobilePhone_FID = "CB_Mobilephone">
+    <cfset CONST_MQ_Email_FID = "CB_Email">
+    <cfset CONST_MQ_Occupation_FID = "CB_Occupation">
+    <cfset CONST_MQ_DriverLicense_No_FID = "CB_DriverLicense_No">
+    <cfset CONST_MQ_DriverLicense_Expiry_FID = "CB_DriverLicense_ExpiryDate">
+    <cfset CONST_MQ_InterestedParties_FID = "CB_InterestedParties">
+    <cfset CONST_MQ_HINNo_FID ="CB_HULL_HIN_No">
+    <cfset CONST_MQ_RegoNo_FID ="CB_HULL_Rego_No">
+    <cfset CONST_MQ_HullYear_FID = "CB_HULL_Year">
+    <cfset CONST_MQ_HullLength_FID = "CB_HULL_Length">
+    <cfset CONST_MQ_MotorMake_FID ="CB_Motor_Make">
+    <cfset CONST_MQ_MotorHP_FID ="CB_Motor_HP">
+    <cfset CONST_MQ_Motor_Year_FID = "CB_Motor_Year">
+    <cfset CONST_MQ_MotorSerialNo_FID ="CB_Motor_Serial_No">
+    <cfset CONST_MQ_TrailerMake_FID ="CB_Trailer_Make">
+    <cfset CONST_MQ_TrailerRego_FID ="CB_Trailer_Rego">
+    <cfset CONST_MQ_TrailerYear_FID = "CB_Trailer_Year">
+    <cfset CONST_MQ_PurchasedDate_FID = "CB_PurchasedDate">
+    <cfset CONST_MQ_PurchasedPrice_FID = "CB_PurchasedPrice">
+    <cfset CONST_MQ_PaymentType_FID = "CB_PaymentType"> <!--- CURRENTLY NOT USED  --->
+    
+    
+    <!--- LIST VALUES --->
+    <cfset CONST_MQ_Comp_LID = "7330">
+    <cfset CONST_MQ_MotorOnly_LID = "7331">
+    <cfset CONST_MQ_TPO_LID = "7332">
+    
+    <cfset CONST_MQ_BoatTypePWC_LID = "7213">
+    <cfset CONST_MQ_BoatTypeRA_LID = "7212">
+    <cfset CONST_MQ_BoatTypeRAM_LID= "7329">
+    
+    <cfset CONST_MQ_MotorType_IMM_LID = "7227">
+    <cfset CONST_MQ_MotorType_IRM_LID = "7333">
+    
+    <cfset CONST_MQ_Construct_Fibre_LID = "7219">
+    <cfset CONST_MQ_Construct_Alum_LID = "7220">
+    <cfset CONST_MQ_Construct_Rubber_LID = "7221">
+    <cfset CONST_MQ_Construct_Plastic_LID = "7222">
+    
+    <cfset CONST_MQ_BoatExp_0_1_LID = "7237">
+    <cfset CONST_MQ_BoatExp_2_5_LID = "7238">
+    <cfset CONST_MQ_BoatExp_6_10_LID = "7239">
+    <cfset CONST_MQ_BoatExp_11_15_LID = "7240">
+    <cfset CONST_MQ_BoatExp_16_LID = "7241">
+    
+    <cfset CONST_MQ_Liabilty_1mil_LID = "7217">
+    <cfset CONST_MQ_Liabilty_2mil_LID = "7218">
+    <cfset CONST_MQ_Liabilty_5mil_LID = "7334">
+    
+    <cfset CONST_MQ_MotorAge_0_5_LID = "7232">
+    <cfset CONST_MQ_MotorAge_6_10_LID = "7233">
+    <cfset CONST_MQ_MotorAge_11_15_LID = "7234">
+    <cfset CONST_MQ_MotorAge_16_20_LID = "7235">
+    <cfset CONST_MQ_MotorAge_21_25_LID = "7236">
+    <cfset CONST_MQ_MotorAge_26_LID = "7335">
+    
+    <cfset CONST_MQ_BoatSpeed_1_35_LID = "7214">
+    <cfset CONST_MQ_BoatSpeed_36_110_LID = "7215">
+    <cfset CONST_MQ_BoatSpeed_111_LID = "7216">
+    
+    <cfset CONST_MQ_BoatProd_Yes_LID = "7223">
+    <cfset CONST_MQ_BoatProd_No_LID = "7224">   
+    
+    <cfset CONST_MQ_paymentType_ListID = 829>
+    <cfset CONST_MQ_paymentType_Cheque_LID = 7730>
+    <cfset CONST_MQ_paymentType_Mastercard_LID = 7731>
+    <cfset CONST_MQ_paymentType_Visa_LID = 7732>
+    <cfset CONST_MQ_paymentType_FinancedYMF_LID = 7733>
+    <cfset CONST_MQ_paymentType_FinancedOther_LID = 7734>
+    
+    
+    
+    <!--- CALCULATOR ITEMS --->
+    <cfset CONST_ID_PWC_Insured_Value_Bands=1>
+    <cfset CONST_ID_RA_Insured_Value_Bands=2>
+    <cfset CONST_ID_PWC_Boat_Age=3>
+    <cfset CONST_ID_RA_Boat_Age=4>
+    <cfset CONST_ID_RA_Motor_Type=5>
+    <cfset CONST_ID_Boat_Construction=6>
+    <cfset CONST_ID_Boating_Course=7>
+    <cfset CONST_ID_Boating_Experience=8>
+    <cfset CONST_ID_PWC_Excess_Rating=9>
+    <cfset CONST_ID_RA_Excess_Rating=10>
+    <cfset CONST_ID_Layup_Discount=11>
+    <cfset CONST_ID_Liability_Limit=12>
+    <cfset CONST_ID_PWC_Motor_Age=13>
+    <cfset CONST_ID_RA_Motor_Age=14>
+    <cfset CONST_ID_PWC_Boat_Speed=15>
+    <cfset CONST_ID_RA_Boat_Speed=16>
+    <cfset CONST_ID_Boat_Storage=17>
+    <cfset CONST_ID_Street_Parking=18>
+    <cfset CONST_ID_Water_Skiers=19>
+    <cfset CONST_ID_Customer_Age=20>
+    <cfset CONST_ID_Admin_Fee=21>
+    <cfset CONST_ID_Fire_Service_Levy=22>
+    <cfset CONST_ID_GST=23>
+    <cfset CONST_ID_Motor_Only_Rate=24>
+    <cfset CONST_ID_TPO_Amount=25>
+    <cfset CONST_ID_MIN_PremiumBase=26>
+    <cfset CONST_ID_MAX_BoatPrice=27>
